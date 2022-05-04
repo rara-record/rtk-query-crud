@@ -1,8 +1,9 @@
 import "./Home.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { useFetchContactsQuery } from "../store/api/contactsApi";
+import { contactsApi, useFetchContactsQuery } from "../store/api/contactsApi";
+import ContactSection from "./ContactSection";
 
 const Home = () => {
   const { data, error, isLoading, isSuccess, isFetching } =
@@ -30,28 +31,20 @@ const Home = () => {
             <th style={{ textAlign: "center" }}>Action</th>
           </tr>
         </thead>
-        <tbody>
-          {isSuccess &&
-            data.map((contact, index) => {
+
+        {isSuccess && (
+          <tbody>
+            {data?.map((contact, index) => {
               return (
-                <tr key={contact.id}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{contact.name}</td>
-                  <td>{contact.email}</td>
-                  <td>{contact.contact}</td>
-                  <td>
-                    <Link to={`/update/${contact.id}`}>
-                      <button className="btn btn-edit">Edit</button>
-                    </Link>
-                    <button className="btn btn-delete">delete</button>
-                    <Link to={`/view/${contact.id}`}>
-                      <button className="btn btn-view">View</button>
-                    </Link>
-                  </td>
-                </tr>
+                <ContactSection
+                  key={contact.id}
+                  contact={contact}
+                  index={index}
+                />
               );
             })}
-        </tbody>
+          </tbody>
+        )}
       </table>
 
       {isLoading && <div>Loading...</div>}
