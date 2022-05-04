@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IContact } from "../models/contact.model";

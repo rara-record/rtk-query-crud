@@ -1,28 +1,16 @@
 {
   "contacts": [
     {
-      "name": "Adam Marcus",
-      "email": "adam123@gmail.com",
-      "contact": "83673677367635",
+      "name": "김보라123",
+      "email": "test@naver.comcom",
+      "contact": "010100",
       "id": 1
     },
     {
-      "name": "Tom Cruise",
-      "email": "tom@gmail.com",
-      "contact": "83786646476",
+      "name": "ㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      "email": "ㅁㄴㅇ",
+      "contact": "ㅁㄴㅇ",
       "id": 2
-    },
-    {
-      "name": "James Bond",
-      "email": "james@gmail.com",
-      "contact": "9484785787",
-      "id": 3
-    },
-    {
-      "name": "ddd",
-      "email": "ddd",
-      "contact": "ddd",
-      "id": 4
     }
   ]
 }
