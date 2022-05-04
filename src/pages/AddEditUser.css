@@ -11,9 +11,10 @@ select {
   box-sizing: border-box;
 }
 
-input[type="submit"] {
+input[type="submit"],
+input[type="button"] {
   width: 100%;
-  background-color: #4caf50;
+  background-color: #45a049;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -22,6 +23,14 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input[type="button"] {
+  background-color: skyblue;
+}
+
 input[type="submit"]:hover {
   background-color: #45a049;
+}
+
+input[type="button"]:hover {
+  background-color: skyblue;
 }
