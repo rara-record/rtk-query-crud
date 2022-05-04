@@ -15,19 +15,22 @@ const AddEditUser = () => {
   const [formValue, setFormValue] = useState(initialState);
   const { name, email, contact } = formValue;
   const [addContacts] = useAddContactsMutation();
+  const navigate = useNavigate();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    if (!name && !email && !contact) {
+      toast.error("Please provide value into each input field");
+    } else {
+      navigate("/");
+      toast.success("Contact Added Successfully");
+    }
     await addContacts(formValue);
   };
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
-    /**
-     * name: a
-     * email: d
-     * contact: c
-     */
   };
 
   return (
