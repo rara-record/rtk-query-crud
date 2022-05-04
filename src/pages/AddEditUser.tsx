@@ -31,7 +31,7 @@ const AddEditUser = () => {
     if (id && data) {
       // 내가 클릭한 데이터에 맞는 url과 data가 있다면
       setEditMode(true); // 수정모드 true
-      setFormValue(data); // 수정모드시 useFetchContactByIdQuery로 불러온 데이터를 저장하여, input value값으로 설정
+      setFormValue(data); // 수정모드시 useFetchContactByIdQuery로 불러온 데이터(id, name.. 등)를 state 저장하여, input value값으로 설정하고, input value가 바뀔때마다 handleInputChange 함수 실행 후 submit을 누르면 ===> 57번째 줄로
     } else {
       setEditMode(false); // 수정모드가 아니라면
       setFormValue({ ...initialState }); // input에 value값을 초기설정으로
@@ -54,7 +54,7 @@ const AddEditUser = () => {
         navigate("/");
         toast.success("글 작성이 완료되었습니다.");
       } else {
-        await upDateContact(formValue);
+        await upDateContact(formValue); // formValue: useFetchContactByIdQuery로 받아온 데이터 중 id값과 수정한 input value값 (name, email, contact) 등을 담아 보냄
         navigate("/");
         toast.success("글 수정이 완료되었습니다.");
       }
